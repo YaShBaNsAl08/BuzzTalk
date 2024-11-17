@@ -1,1 +1,10 @@
-<p>user-list works!</p>
+<div class="user-list-container">
+    <h3>Online Users</h3>
+    <ul>
+      <li *ngFor="let user of users" class="user">
+        <mat-icon color="primary">person</mat-icon>
+        <span>{{ user }}</span>
+      </li>
+    </ul>
+  </div>
+  

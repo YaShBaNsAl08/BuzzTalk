@@ -1,1 +1,30 @@
-<p>chat-room works!</p>
+<div class="chat-room-container">
+    <div class="user-list">
+      <app-user-list></app-user-list>
+    </div>
+
+    <div class="chat-main">
+      <div class="message-list">
+        <div *ngFor="let message of messages" class="message">
+          <span class="user">{{ message.user }}:</span>
+          <span class="text">{{ message.text }}</span>
+        </div>
+      </div>
+  
+      <div class="message-input">
+        <mat-form-field appearance="fill" class="input-field">
+          <mat-label>Type your message</mat-label>
+          <input matInput [(ngModel)]="messageContent" />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="sendMessage()"
+          [disabled]="!messageContent"
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+  
