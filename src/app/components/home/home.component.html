@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="home-container">
+    <h1>Welcome to BuzzTalk</h1>
+    <p>Enter your name to join the chat!</p>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="username" placeholder="Enter your name" />
+    </mat-form-field>
+  
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="joinChat()"
+      [disabled]="!username"
+    >
+      Join Chat
+    </button>
+  </div>
+  
