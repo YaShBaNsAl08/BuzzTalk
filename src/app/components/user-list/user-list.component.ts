@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { ChatServiceService } from '../../services/chat-service.service';
 
 @Component({
   selector: 'app-user-list',
@@ -10,12 +11,18 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent implements OnInit{
-  users: string[] = ['Yash','Alice', 'Bob', 'Charlie'];
+  users: any[]=[];
+  selectedUser : string | null = null;
 
-  constructor(){}
+  constructor(private chatservice : ChatServiceService){}
 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+    this.chatservice.getUsers().subscribe((user)=>{
+      this.users=user;
+    })
+  }
+  selectuser(user:string){
+    this.selectedUser = user;
   }
 
 }
